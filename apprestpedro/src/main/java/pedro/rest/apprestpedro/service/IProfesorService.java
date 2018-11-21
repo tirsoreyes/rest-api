@@ -2,6 +2,8 @@ package pedro.rest.apprestpedro.service;
 
 import java.util.List;
 
+import javax.xml.ws.Response;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -16,5 +18,7 @@ public interface IProfesorService {
 	public ResponseEntity<RespuestaGenerica<List<Profesor>>> obtenProfesoresPorEdad(int edad);
 
 	public ResponseEntity<RespuestaGenerica<List<Profesor>>> obtenProfesoresPorSexo(String sexo);
+
+	public ResponseEntity<RespuestaGenerica<?>> agregaProfesor(Profesor p);
 
 }

@@ -1,15 +1,14 @@
 package pedro.rest.apprestpedro.controller;
 
 import java.util.List;
-
-import org.junit.runners.Parameterized.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import pedro.rest.apprestpedro.modelo.Profesor;
 import pedro.rest.apprestpedro.modelo.RespuestaGenerica;
 import pedro.rest.apprestpedro.service.IProfesorService;
@@ -33,6 +32,11 @@ public class ProfesorController {
 	@GetMapping(value="profesores/sexo")
 	public ResponseEntity<RespuestaGenerica<List<Profesor>>> obtenProfesoresPorSexo(@RequestParam(value="sexo", required=true) String sexo){
 		return profesorService.obtenProfesoresPorSexo(sexo);
+	}
+	
+	@PostMapping(value="profesores")
+	public ResponseEntity<RespuestaGenerica<?>> agregaProfesor(@RequestBody Profesor p){
+		return profesorService.agregaProfesor(p);
 	}
 	
 }
